@@ -6,9 +6,9 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-
+import { ProductAddComponent } from './components/product-add/product-add.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,12 +16,15 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     HomeComponent,
     ProductListComponent,
-    HeaderAdminComponent
+    HeaderAdminComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,26 +3,28 @@
 <!-- Page Content List Products-->
 <div class="container">
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">
-        Spring eCommerce <small>Productos</small>
+    <h1 class="mt-4 mb-5">
+        Spring E-commerce <small>Products</small>
     </h1>
 
-    <ol class="breadcrumb">
+    <ol class="breadcrumb mb-5">
         <li class="breadcrumb-item"><a routerLink="">Home</a></li>
-        <li class="breadcrumb-item active">Ver Productos</li>
+        <li class="breadcrumb-item active">Products</li>
     </ol>
 
-    <a class="btn btn-primary"> Crear Producto</a>
-    <h2>Productos</h2>
-    <table class="table">
+    <h2 class="mt-3 mb-3">Productos</h2>
+    <div class="mb-4">
+        <a class=" btn btn-primary" routerLink="/admin/product/addproduct">New Product</a>
+    </div>
+    <table class="table text-center">
         <thead>
             <tr>
-                <th>Código</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody *ngFor = "let p of products; trackBy: trackById">
@@ -31,8 +33,8 @@
                 <td>{{ p.name }}</td>
                 <td>{{ p.description }}</td>
                 <td>{{ p.price }}</td>
-                <td><button class="btn btn-warning">Editar</button> </td>
-                <td><button class="btn btn-danger">Eliminar</button>
+                <td><button class="btn btn-warning" [routerLink]="['/admin/product/update', p.id]">Edit</button> </td>
+                <td><button class="btn btn-danger" (click)="deleProductById(p.id)">Delete</button></td>
             </tr>
         </tbody>
     </table>        
