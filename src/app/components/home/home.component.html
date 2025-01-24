@@ -39,7 +39,7 @@
         <div *ngFor="let p of products; trackBy: trackById" class="col-md-3">
 
           <div class="product-box">
-            <img src="">
+            <img [src]="p.urlImage">
             <h2 class="card-text">{{ p.name }}</h2>
             <div class="price">{{ p.price }}</div>
             <div class="product-show">
@@ -59,20 +59,3 @@
   </div>
   <!-- /.container -->
 </footer>
-
-<table class="table table-striped table-hover">
-    <thead class="table-dark">
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Precio</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p of products">
-        <th scope="row">{{ p.id }}</th>
-        <td>{{ p.name }}</td>
-        <td>{{ p.price | currency: 'EUR' }}</td>
-      </tr>
-    </tbody>
-  </table>
