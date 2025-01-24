@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProductListComponent
+    ProductListComponent,
+    HeaderAdminComponent
   ],
   imports: [
     BrowserModule,
