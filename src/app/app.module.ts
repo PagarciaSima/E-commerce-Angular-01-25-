@@ -6,6 +6,10 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+
+
 
 @NgModule({
   declarations: [
@@ -16,7 +20,8 @@ import { HeaderAdminComponent } from './components/header-admin/header-admin.com
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
