@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductFormData } from 'src/app/interfaces/product-form-data';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -18,7 +17,8 @@ export class ProductAddComponent implements OnInit{
   urlImage: string = '';
   userId: string = '1';
   categoryId: string = '3';
-
+  selectFile!: File;
+ 
   constructor(
     private productService: ProductService,
     private router: Router,
@@ -32,36 +32,48 @@ export class ProductAddComponent implements OnInit{
   }
 
   saveProduct() {
-    const formData: ProductFormData =
-    {
-      name: this.name,
-      code: this.code,
-      description: this.description,
-      price: this.price,
-      userId: this.userId,
-      categoryId: this.categoryId,
+    const formData = new FormData();
+  
+    // Sending each part as binary (image and json) and converting to json string 
+    formData.append('product',
+      new Blob(
+        [JSON.stringify({
+          name: this.name,
+          code: this.code,
+          description: this.description,
+          price: this.price,
+          userId: this.userId,
+          categoryId: this.categoryId,
+          })
+        ], { type: 'application/json' }));
+  
+    if (this.selectFile) {
+      formData.append('image', this.selectFile);
     }
+  
     if (this.id) {
       this.productService.updateProduct(this.id, formData).subscribe({
         next: (data) => {
-          console.log(data)
-          this.router.navigate(['admin/product'])
-        }, error: (error) => {
-          console.log(error)
+          console.log(data);
+          this.router.navigate(['admin/product']);
+        },
+        error: (error) => {
+          console.error(error);
         }
-      })
+      });
     } else {
       this.productService.createProduct(formData).subscribe({
         next: (data) => {
-          console.log(data)
-          this.router.navigate(['admin/product'])
-        }, error: (error) => {
-          console.log(error)
+          console.log(data);
+          this.router.navigate(['admin/product']);
+        },
+        error: (error) => {
+          console.error(error);
         }
-      })
+      });
     }
-    
   }
+  
 
   getProductByID() {
     this.activatedRoute.params.subscribe(
@@ -84,5 +96,14 @@ export class ProductAddComponent implements OnInit{
       }
     )
   }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement; 
+    if (input.files && input.files.length > 0) {
+      this.selectFile = input.files[0]; // First selected file
+      console.log('Selected file:', this.selectFile.name);
+    }
+  }
+  
 
 }
