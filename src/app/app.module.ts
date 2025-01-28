@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { CateogryListComponent } from './components/cateogry-list/cateogry-list.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CategoryAddComponent } from './components/category-add/category-add.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderAdminComponent,
     ProductAddComponent,
     CateogryListComponent,
-    FooterComponent
+    FooterComponent,
+    CategoryAddComponent
   ],
   imports: [
     BrowserModule,

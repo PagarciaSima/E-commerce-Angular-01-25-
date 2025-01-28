@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { CateogryListComponent } from './components/cateogry-list/cateogry-list.component';
+import { CategoryAddComponent } from './components/category-add/category-add.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'admin/product/update/:id', component: ProductAddComponent },
 
   { path: 'admin/category', component: CateogryListComponent },
+  { path: 'admin/category/addcategory', component: CategoryAddComponent },
 
 
 ];
