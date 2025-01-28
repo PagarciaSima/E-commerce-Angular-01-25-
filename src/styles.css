@@ -1,5 +1,6 @@
 body {
     padding-top: 56px;
+    height: 100vh;
 }
 
 .product-box img {
@@ -46,4 +47,13 @@ a.primary-btn:hover{
   color: white;
   text-align: center;
   
+}
+app-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }

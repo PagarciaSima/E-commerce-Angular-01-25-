@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { CateogryListComponent } from './components/cateogry-list/cateogry-list.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     ProductListComponent,
     HeaderAdminComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    CateogryListComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
