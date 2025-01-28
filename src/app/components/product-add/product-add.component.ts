@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -22,7 +23,8 @@ export class ProductAddComponent implements OnInit{
   constructor(
     private productService: ProductService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private toastr: ToastrService
   ) {
     
   }
@@ -52,28 +54,35 @@ export class ProductAddComponent implements OnInit{
     }
   
     if (this.id) {
-      this.productService.updateProduct(this.id, formData).subscribe({
-        next: (data) => {
-          console.log(data);
-          this.router.navigate(['admin/product']);
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      });
+      this.updateProduct(formData);
     } else {
-      this.productService.createProduct(formData).subscribe({
-        next: (data) => {
-          console.log(data);
-          this.router.navigate(['admin/product']);
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      });
+      this.createProduct(formData);
     }
   }
   
+  private createProduct(formData: FormData) {
+    this.productService.createProduct(formData).subscribe({
+      next: (data) => {
+        this.toastr.success('Product registered successfully', 'Products');
+        this.router.navigate(['admin/product']);
+      },
+      error: (error) => {
+        this.toastr.error('Product could not be created', 'Products')
+      }
+    });
+  }
+
+  private updateProduct(formData: FormData) {
+    this.productService.updateProduct(this.id!, formData).subscribe({
+      next: (data) => {
+        this.toastr.success('Product updated successfully', 'Products')
+        this.router.navigate(['admin/product']);
+      },
+      error: (error) => {
+        this.toastr.error('Product could not be updated', 'Products')
+      }
+    });
+  }
 
   getProductByID() {
     this.activatedRoute.params.subscribe(

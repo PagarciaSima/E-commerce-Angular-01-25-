@@ -9,6 +9,7 @@ import { HeaderAdminComponent } from './components/header-admin/header-admin.com
 import { AppRoutingModule } from './app-routing.module';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    ToastrModule.forRoot(),
     
   ],
   providers: [],
