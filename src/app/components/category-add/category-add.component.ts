@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { switchMap } from 'rxjs/operators';
 import { Category } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -23,6 +24,7 @@ export class CategoryAddComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.getCategoryById();
   }
 
   addCategory() {
@@ -36,5 +38,20 @@ export class CategoryAddComponent implements OnInit{
       }
     })
   }
+
+getCategoryById() {
+  this.activatedRoute.params.pipe(
+    switchMap(({ id }) => this.categoryService.getCategoryById(id))
+  ).subscribe({
+    next: ({ id, name }) => {
+      this.id = id;
+      this.name = name;
+      console.log("id", this.id)
+    },
+    error: (err) => {
+      console.error('Error fetching category:', err);
+    }
+  });
+}
 
 }
