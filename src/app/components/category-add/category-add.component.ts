@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Category } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
@@ -22,7 +23,18 @@ export class CategoryAddComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  }
+
+  addCategory() {
+    let category: Category = { id: this.id, name: this.name };
+    this.categoryService.createCategory(category).subscribe({
+      next: () => {
+        this.toastR.success('Category registered successfully', 'Categories');
+        this.router.navigate(['admin/category']);
+      }, error: () => {
+        this.toastR.error('The category could not be created', 'Categories')
+      }
+    })
   }
 
 }

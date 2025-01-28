@@ -62,24 +62,24 @@ export class ProductAddComponent implements OnInit{
   
   private createProduct(formData: FormData) {
     this.productService.createProduct(formData).subscribe({
-      next: (data) => {
+      next: () => {
         this.toastr.success('Product registered successfully', 'Products');
         this.router.navigate(['admin/product']);
       },
-      error: (error) => {
-        this.toastr.error('Product could not be created', 'Products')
+      error: () => {
+        this.toastr.error('The product could not be created', 'Products')
       }
     });
   }
 
   private updateProduct(formData: FormData) {
     this.productService.updateProduct(this.id!, formData).subscribe({
-      next: (data) => {
+      next: () => {
         this.toastr.success('Product updated successfully', 'Products')
         this.router.navigate(['admin/product']);
       },
-      error: (error) => {
-        this.toastr.error('Product could not be updated', 'Products')
+      error: () => {
+        this.toastr.error('The product could not be updated', 'Products')
       }
     });
   }
