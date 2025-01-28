@@ -13,6 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CateogryListComponent } from './components/cateogry-list/cateogry-list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CategoryAddComponent } from './components/category-add/category-add.component';
+import { DetailProductComponent } from './components/cart/detail-product/detail-product.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CategoryAddComponent } from './components/category-add/category-add.com
     ProductAddComponent,
     CateogryListComponent,
     FooterComponent,
-    CategoryAddComponent
+    CategoryAddComponent,
+    DetailProductComponent
   ],
   imports: [
     BrowserModule,
