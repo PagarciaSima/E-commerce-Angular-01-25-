@@ -16,6 +16,20 @@
     <h2 class="mb-3">{{ id ? 'Edit product' : 'New product' }}</h2>
     <form class="form-horizontal" (ngSubmit)="saveProduct()" enctype="multipart/form-data">
       <input type="hidden" id="id" name="id">
+
+      <div class="form-group row">
+        <label class="control-label col-sm-2" for="nombre">Select a category:</label>
+        <div class="col-sm-10">
+          <div class="combo-box mb-3">
+            <select [(ngModel)]="categoryId" name="category">
+              <option *ngFor="let category of categories; let i = index; trackBy: trackById" [value]="category.id">
+                {{ i + 1 }} - {{ category.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       <div class="form-group">
         <label class="control-label col-sm-2" for="name">Name:</label>
         <div class="col-sm-10">

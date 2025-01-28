@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Category } from 'src/app/interfaces/category';
+import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -17,11 +19,14 @@ export class ProductAddComponent implements OnInit{
   price: number = 0;
   urlImage: string = '';
   userId: string = '1';
-  categoryId: string = '3';
+  categoryId: string = '0';
   selectFile!: File;
+
+  categories: Category[] = [];
  
   constructor(
     private productService: ProductService,
+    private categoryService: CategoryService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService
@@ -31,8 +36,13 @@ export class ProductAddComponent implements OnInit{
 
   ngOnInit(): void {
     this.getProductByID();
+    this.getCategories();
   }
 
+  trackById(index: number, category: Category): number {
+    return category.id; 
+  }
+  
   saveProduct() {
     const formData = new FormData();
   
@@ -112,6 +122,16 @@ export class ProductAddComponent implements OnInit{
       this.selectFile = input.files[0]; // First selected file
       console.log('Selected file:', this.selectFile.name);
     }
+  }
+
+  getCategories() {
+    return this.categoryService.getCategoryList().subscribe({
+      next: (data) => {
+        this.categories = data;
+      }, error: () => {
+        this.toastr.error('Unexpected error -> Error :: getCategories', 'Categories');
+      }
+    })
   }
   
 

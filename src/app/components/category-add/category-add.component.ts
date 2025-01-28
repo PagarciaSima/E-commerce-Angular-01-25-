@@ -29,14 +29,33 @@ export class CategoryAddComponent implements OnInit{
 
   addCategory() {
     let category: Category = { id: this.id, name: this.name };
+    if (this.id) {
+      this.updateCategory(category);
+    } else {
+      this.newCategory(category);
+    }
+  }
+
+  private newCategory(category: Category) {
     this.categoryService.createCategory(category).subscribe({
       next: () => {
         this.toastR.success('Category registered successfully', 'Categories');
         this.router.navigate(['admin/category']);
       }, error: () => {
-        this.toastR.error('The category could not be created', 'Categories')
+        this.toastR.error('The category could not be created', 'Categories');
       }
-    })
+    });
+  }
+
+  private updateCategory(category: Category) {
+    this.categoryService.updateCategory(this.id, category).subscribe({
+      next: () => {
+        this.toastR.success('Category updated successfully', 'Categories');
+        this.router.navigate(['admin/category']);
+      }, error: () => {
+        this.toastR.error('The category could not be updated', 'Categories');
+      }
+    });
   }
 
 getCategoryById() {
@@ -46,10 +65,9 @@ getCategoryById() {
     next: ({ id, name }) => {
       this.id = id;
       this.name = name;
-      console.log("id", this.id)
     },
     error: (err) => {
-      console.error('Error fetching category:', err);
+      console.error('Error, there is not a category with the given id:', this.id);
     }
   });
 }

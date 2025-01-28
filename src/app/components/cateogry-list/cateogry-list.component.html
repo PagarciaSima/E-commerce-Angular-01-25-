@@ -25,7 +25,7 @@
             <tr *ngFor = "let category of categories; trackBy: trackById">
                 <td>{{ category.name }}</td>                
                 <td><button class="btn btn-warning" [routerLink]="['/admin/category/update', category.id]">Edit</button> </td>
-                <td><button class="btn btn-danger" >Delete</button>
+                <td><button class="btn btn-danger" (click) = "deleteCategoryById(category.id)">Delete</button>
             </tr>
         </tbody>
     </table>
