@@ -18,26 +18,28 @@
         <div class="row">
           <div class="col-lg-6">
             <a href="#"> <img class="img-fluid rounded"
-              src="assets/images/placehold.png"  alt="">
+              [src]="urlImage"  alt="Product image">
             </a>
           </div>
           <div class="col-lg-6">
-            <form action="#" method="POST">
-              <h2 class="card-title">Nombre producto</h2>
+            <form method="POST" (ngSubmit)="addCart(id)">
+              <h2 class="card-title">{{ name }}</h2>
 
               <ul class="list-group">
-                <li class="list-group-item"><h5>Precio: </h5></li>
+                <li class="list-group-item"><h5>Price: {{ price | currency: 'EUR'}}: </h5></li>
                 <li class="list-group-item">
-                  <p>Descripción:</p>
+                  <p>Description: {{ description }}</p>
                 </li>
-                <li class="list-group-item"><h6>
-                  Cantidad: <input type="number" id="quantity" name="quantity" autocomplete="off"
-                  min="1" max="5" value="1">
-                </h6></li>
+                <li class="list-group-item">
+                    <h6>
+                        Cantidad: 
+                        <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity" autocomplete="off" min="1" max="5" value="1">                  
+                    </h6>
+                </li>
               </ul>
 
 
-              <button type="submit"  class="btn btn-dark">Añadir al carrito </button>
+              <button type="submit" class="btn btn-dark">Add to cart</button>
 
             </form>
           </div>
