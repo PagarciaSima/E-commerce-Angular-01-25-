@@ -1,15 +1,17 @@
+<app-header-user></app-header-user>
+
 <!-- Page Content -->
 <div class="container">
 
 
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">
-      Spring eCommerce <small>Producto</small>
+    <h1 class="mt-4 mb-5">
+      Spring E-Commerce | Product detail
     </h1>
 
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item active">Producto</li>
+    <ol class="breadcrumb mb-5">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item active">Product</li>
     </ol>
 
     <!-- Blog Post -->
@@ -21,7 +23,7 @@
               [src]="urlImage"  alt="Product image">
             </a>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 mt-3">
             <form method="POST" (ngSubmit)="addCart(id)">
               <h2 class="card-title">{{ name }}</h2>
 
@@ -32,14 +34,14 @@
                 </li>
                 <li class="list-group-item">
                     <h6>
-                        Cantidad: 
+                        Quantity: 
                         <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity" autocomplete="off" min="1" max="5" value="1">                  
                     </h6>
                 </li>
               </ul>
 
 
-              <button type="submit" class="btn btn-dark">Add to cart</button>
+              <button type="submit" class="btn btn-dark mt-3">Add to cart</button>
 
             </form>
           </div>

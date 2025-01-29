@@ -14,6 +14,7 @@ import { CateogryListComponent } from './components/cateogry-list/cateogry-list.
 import { FooterComponent } from './components/footer/footer.component';
 import { CategoryAddComponent } from './components/category-add/category-add.component';
 import { DetailProductComponent } from './components/cart/detail-product/detail-product.component';
+import { HeaderUserComponent } from './components/header-user/header-user.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { DetailProductComponent } from './components/cart/detail-product/detail-
     CateogryListComponent,
     FooterComponent,
     CategoryAddComponent,
-    DetailProductComponent
+    DetailProductComponent,
+    HeaderUserComponent
   ],
   imports: [
     BrowserModule,
