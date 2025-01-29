@@ -1,6 +1,8 @@
 body {
     padding-top: 56px;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-box img {
@@ -37,23 +39,14 @@ a.primary-btn:hover{
  */
 
 
-.footer{
-  padding-top: 25px;
-  padding-bottom: 50px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: black;
-  color: white;
-  text-align: center;
-  
-}
+
 app-footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #343a40;
   color: white;
   text-align: center;
   padding: 10px;
+  max-height: 80px;
 }
+

@@ -1,3 +1,36 @@
-.pImage {
-    width:180px;
-}
+.product-box {
+    width: 100%;
+    min-height: 350px; /* Ajusta según necesidad */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Asegura que el texto esté centrado */
+    padding: 15px;
+    border: 1px solid #ddd; /* Solo para visualización */
+    border-radius: 10px;
+  }
+  
+  .pImage {
+    width: 100%; 
+    height: 200px; /* Mantiene uniformidad en las imágenes */
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+  }
+  
+  .card-text {
+    min-height: 50px; /* Asegura que los títulos ocupen el mismo espacio */
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .price {
+    font-size: 1.1rem;
+    color: #28a745;
+    margin-top: 10px;
+    min-height: 30px; /* Mantiene alineación */
+  }
+  
+  .product-show {
+    margin-top: auto; /* Empuja el botón hacia abajo */
+    width: 100%;
+  }
+  

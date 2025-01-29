@@ -5,11 +5,11 @@
 <div class="container">
 
   <!-- Page Heading/Breadcrumbs -->
-  <h1 class="mt-4 mb-3">
+  <h1 class="my-5">
     Spring E-commerce | Order summary
   </h1>
 
-  <ol class="breadcrumb">
+  <ol class="breadcrumb mb-5">
     <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
     <li class="breadcrumb-item active">Order summary</li>
   </ol>
@@ -20,15 +20,15 @@
       <div class="row">
         <div class="col-lg-9">
           <div class="card-body">
-            <h5 class="card-title">
-              Order
+            <h5 class="card-title mb-3">
+              <u>Order</u>
             </h5>
             <h6><strong> Name: </strong> </h6>
             <h6><strong>Email: </strong>  </h6>
             <h6><strong> Address: </strong></h6>
 
-            <h5 class="card-title">
-              Products
+            <h5 class="card-title mb-3 mt-3">
+              <u>Products</u>
             </h5>
               <table class="table">
                 <thead>
@@ -55,13 +55,13 @@
 
 
         <div class="col-lg-3">
-          <h2 class="card-title">Order summary</h2>
+          <h2 class="card-title mb-5 text-success">Order summary</h2>
 
           <ul class="list-group">
             <li class="list-group-item">
               <h5> Total: </h5>
             </li>
-            <a class="btn btn-dark">Pay with Paypal</a>
+            <a class="btn btn-success"><i class="fa-brands fa-paypal me-2"></i>Pay with Paypal</a>
           </ul>
         </div>
       </div>

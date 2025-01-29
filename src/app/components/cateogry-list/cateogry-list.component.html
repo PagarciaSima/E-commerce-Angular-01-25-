@@ -2,16 +2,16 @@
 <!-- Page Content List Categories-->
 <div class="container">
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-5">
+    <h1 class="mt-5 mb-5">
         Spring E-commerce | Categories
     </h1>
 
     <ol class="breadcrumb mb-5">
-        <li class="breadcrumb-item"><a href="">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
         <li class="breadcrumb-item active">Categories</li>
     </ol>
 
-    <a class="btn btn-primary mb-4" routerLink="/admin/category/addcategory">New Category</a>
+    <a class="btn btn-success mb-4" routerLink="/admin/category/addcategory"><i class="fa-solid fa-list me-2"></i>New Category</a>
     <h2>Categories</h2>
     <table class="table">
         <thead>
@@ -23,9 +23,16 @@
         </thead>
         <tbody>
             <tr *ngFor = "let category of categories; trackBy: trackById">
-                <td>{{ category.name }}</td>                
-                <td><button class="btn btn-warning" [routerLink]="['/admin/category/update', category.id]">Edit</button> </td>
-                <td><button class="btn btn-danger" (click) = "deleteCategoryById(category.id)">Delete</button>
+                <td><span class="badge bg-success shadow">{{ category.name }}</span></td>                
+                <td>
+                    <button class="btn btn-warning" [routerLink]="['/admin/category/update', category.id]">
+                        <i class="fa-regular fa-pen-to-square me-2"></i>Edit            
+                    </button> 
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click) = "deleteCategoryById(category.id)">
+                        <i class="fa-solid fa-trash me-2"></i>Delete
+                    </button>
             </tr>
         </tbody>
     </table>
