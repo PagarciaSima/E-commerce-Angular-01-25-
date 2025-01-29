@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CategoryAddComponent } from './components/category-add/category-add.component';
 import { DetailProductComponent } from './components/cart/detail-product/detail-product.component';
 import { HeaderUserComponent } from './components/header-user/header-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { HeaderUserComponent } from './components/header-user/header-user.compon
     AppRoutingModule,
     FormsModule,
     ToastrModule.forRoot(),
+    BrowserAnimationsModule
     
   ],
   providers: [],

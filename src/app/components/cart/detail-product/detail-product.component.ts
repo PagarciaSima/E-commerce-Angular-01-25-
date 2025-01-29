@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ItemCart } from 'src/app/interfaces/item-cart';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -55,6 +56,16 @@ export class DetailProductComponent implements OnInit{
     console.log('ID product ', this.id);
     console.log('Name product ', this.name);
     console.log('Name description ', this.description);
+
+    let item: ItemCart = {
+      productId: this.id,
+      productName: this.name,
+      quantity: this.quantity,
+      price: this.price
+    }
+
+    this.cartService.addItemCart(item);
+    this.toastr.success('Product added to cart ', 'My cart');
 
   }
 }
