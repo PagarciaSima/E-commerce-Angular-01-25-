@@ -7,6 +7,7 @@ import { ProductAddComponent } from './components/product-add/product-add.compon
 import { CateogryListComponent } from './components/cateogry-list/cateogry-list.component';
 import { CategoryAddComponent } from './components/category-add/category-add.component';
 import { DetailProductComponent } from './components/cart/detail-product/detail-product.component';
+import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-order.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'admin/category/update/:id', component: CategoryAddComponent },
 
   { path: 'cart/detailproduct/:id', component: DetailProductComponent },
+  { path: 'cart/summary', component: SumaryOrderComponent },
 
 
 
