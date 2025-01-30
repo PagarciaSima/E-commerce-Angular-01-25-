@@ -12,7 +12,14 @@ export class CartService {
   constructor() { }
 
   addItemCart(itemCart: ItemCart) {
-    this.items.set(itemCart.productId, itemCart);
+    if (this.items.has(itemCart.productId)) {
+      // Si el producto ya está en el carrito, sumamos la cantidad
+      let existingItem = this.items.get(itemCart.productId)!;
+      existingItem.quantity += itemCart.quantity;
+    } else {
+      // Si el producto no está en el carrito, lo agregamos
+      this.items.set(itemCart.productId, itemCart);
+    }
   }
 
   deleteItemCart(productId: number) {

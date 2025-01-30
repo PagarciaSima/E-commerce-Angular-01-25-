@@ -23,9 +23,11 @@
             <h5 class="card-title mb-3">
               <u class="badge bg-success"><i class="fa-solid fa-circle-info me-2"></i>Order</u>
             </h5>
-            <h6><strong> Name: </strong> </h6>
-            <h6><strong>Email: </strong>  </h6>
-            <h6><strong> Address: </strong></h6>
+            <ul>
+              <li><strong> Name:</strong>  {{ firstName }} {{ lastName }}</li>
+              <li><strong>Email:</strong> {{ email }}</li>
+              <li><strong> Address:</strong> {{ address }}</li>
+            </ul>
 
             <h5 class="card-title mb-3 mt-3">
               <u class="badge bg-success"><i class="fa-solid fa-list me-2"></i>Products</u>
@@ -43,9 +45,9 @@
                 <tbody>
                   <tr *ngFor="let item of items">
                     <td>{{ item.productName }}</td>
-                    <td>{{ item.price }}</td>
+                    <td>{{ item.price | currency: 'EUR' }}</td>
                     <td>{{ item.quantity }}</td>
-                    <td>{{ item.quantity * item.price }}</td>
+                    <td>{{ (item.quantity * item.price) | currency: 'EUR' }}</td>
                     <td>
                       <button class="btn btn-danger" (click)="deleteItemCart(item.productId)">
                         <i class="fa-solid fa-trash me-2"></i>Delete
@@ -59,11 +61,11 @@
 
 
         <div class="col-lg-3">
-          <h2 class="card-title mb-5 text-success">Order summary</h2>
+          <h2 class="card-title mb-5 text-success text-center">Order summary</h2>
 
           <ul class="list-group">
             <li class="list-group-item">
-              <h5> Total: </h5>
+              <h5> Total: {{ totalCart | currency: 'EUR' }}</h5>
             </li>
             <a class="btn btn-success"><i class="fa-brands fa-paypal me-2"></i>Pay with Paypal</a>
           </ul>

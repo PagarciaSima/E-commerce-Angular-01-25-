@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ItemCart } from 'src/app/interfaces/item-cart';
 import { CartService } from 'src/app/services/cart.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-sumary-order',
@@ -17,7 +19,10 @@ export class SumaryOrderComponent implements OnInit{
   address: string = '';
 
   constructor(
-    private cartService: CartService
+    private cartService: CartService,
+    private userService: UserService,
+    private toastr: ToastrService
+    
   ) {
     
   }
@@ -25,6 +30,7 @@ export class SumaryOrderComponent implements OnInit{
   ngOnInit(): void {
     this.items = this.cartService.getListFromMap();
     this.totalCart = this.cartService.totalCart();
+    this.getUserById(1);
   }
 
   deleteItemCart(productId: number) {
@@ -32,6 +38,19 @@ export class SumaryOrderComponent implements OnInit{
     this.items = this.cartService.getListFromMap();
     this.totalCart = this.cartService.totalCart();
 
+  }
+
+  getUserById(id: number) {
+    this.userService.getUserById(id).subscribe({
+      next: (data) => {
+        this.firstName = data.firstName;
+        this.lastName = data.lastName;
+        this.email = data.email;
+        this.address = data.address;
+      }, error: () => {
+        this.toastr.error('The user could not be found :: getUserById', 'Sumary Order')
+      }
+    });
   }
 
 }
