@@ -46,7 +46,11 @@
                     <td>{{ item.price }}</td>
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.quantity * item.price }}</td>
-                    <td><button class="btn btn-danger">Delete</button> </td>
+                    <td>
+                      <button class="btn btn-danger" (click)="deleteItemCart(item.productId)">
+                        <i class="fa-solid fa-trash me-2"></i>Delete
+                      </button> 
+                    </td>
                   </tr>
                 </tbody>
               </table>

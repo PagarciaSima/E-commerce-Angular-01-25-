@@ -4,7 +4,7 @@
 <div class="container">
   <header class="jumbotron my-5">
     <h1 class="display-3">Bienvenido a Spring E-commerce {{ currentYear }}</h1>
-    <p class="lead">Tu tienda de productos en Línea</p>
+    <p class="lead">Your Online Shop</p>
   </header>
 </div>
 
@@ -19,7 +19,7 @@
             <h2 class="card-text">{{ p.name }}</h2>
             <div class="price">{{ p.price | currency: 'EUR' }}</div>
             <div class="product-show">
-              <a [routerLink]="['/cart/detailproduct', p.id]" class="btn btn-success"><i class="fa-solid fa-circle-info me-2"></i>Ver producto</a>
+              <a [routerLink]="['/cart/detailproduct', p.id]" class="btn btn-success"><i class="fa-solid fa-circle-info me-2"></i>Product detail</a>
             </div>
           </div>
         </div>
