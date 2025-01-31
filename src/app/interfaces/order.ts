@@ -1,7 +1,7 @@
 import { OrderProduct } from "./order-product";
 
 export interface Order {
-    id: number,
+    id: number | null,
     dateCreated: Date,
     orderProducts: OrderProduct[],
     userId: number,
@@ -9,7 +9,7 @@ export interface Order {
 }
 
 export enum OrderState {
-    CONFIRMADA = "CONFIRMADA",
-    CANCELADA = "CANCELADA"
+    CONFIRFMED = "CONFIRFMED",
+    CANCELLED = "CANCELLED"
   }
   

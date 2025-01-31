@@ -31,6 +31,11 @@ export class CartService {
     );
   }
 
+  clearCart() {
+    this.items.clear(); 
+    this.itemList = []; 
+  }
+
   totalCart() {
     let totalCart: number = 0;
     this.items.forEach(
