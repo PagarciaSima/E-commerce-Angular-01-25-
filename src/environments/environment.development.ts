@@ -3,5 +3,7 @@ export const environment = {
     apiURLProducts: 'http://localhost:8085/api/v1/admin/products',
     apiURLCategories: 'http://localhost:8085/api/v1/admin/categories',
     apiURLUsers: 'http://localhost:8085/api/v1/users',
-    apiURLOrders: 'http://localhost:8085/api/v1/orders'
+    apiURLOrders: 'http://localhost:8085/api/v1/orders',
+    apiURLPayment: 'http://localhost:8085/api/v1/payments'
+    
   };
