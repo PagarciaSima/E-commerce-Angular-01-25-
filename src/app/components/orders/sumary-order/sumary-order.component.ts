@@ -92,7 +92,6 @@ export class SumaryOrderComponent implements OnInit{
         if (paymentResponse?.url) {
           this.cartService.clearCart();
           window.location.href = paymentResponse.url.toString();
-          this.toastr.success('The payment was successfully proccesed.', 'Payment Successful');
           return of(true);
         }
         return throwError(() => new Error('Invalid payment response'));

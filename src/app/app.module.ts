@@ -17,6 +17,7 @@ import { DetailProductComponent } from './components/cart/detail-product/detail-
 import { HeaderUserComponent } from './components/header-user/header-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-order.component';
+import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-or
     CategoryAddComponent,
     DetailProductComponent,
     HeaderUserComponent,
-    SumaryOrderComponent
+    SumaryOrderComponent,
+    PaymentSuccessComponent
   ],
   imports: [
     BrowserModule,
