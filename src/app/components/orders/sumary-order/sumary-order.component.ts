@@ -33,7 +33,6 @@ export class SumaryOrderComponent implements OnInit{
     private userService: UserService,
     private toastr: ToastrService,
     private orderService: OrderService,
-    private router: Router,
     private paymentService: PaymentService
   ) {
     
@@ -52,6 +51,13 @@ export class SumaryOrderComponent implements OnInit{
     }
   
     this.isGeneratingOrder = true;
+
+    this.orderProducts = this.items.map(item => ({
+      id: null,
+      quantity: item.quantity,
+      price: item.price,
+      productId: item.productId
+    }));
   
     const order: Order = {
       id: null,
@@ -98,9 +104,6 @@ export class SumaryOrderComponent implements OnInit{
     );
   }
   
-  
-  
-
   deleteItemCart(productId: number) {
     this.cartService.deleteItemCart(productId);
     this.items = this.cartService.getListFromMap();
