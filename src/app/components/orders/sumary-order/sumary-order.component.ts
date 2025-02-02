@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { catchError, finalize, Observable, of, switchMap, throwError } from 'rxjs';
 import { ItemCart } from 'src/app/interfaces/item-cart';
 import { Order, OrderState } from 'src/app/interfaces/order';
 import { OrderProduct } from 'src/app/interfaces/order-product';
 import { CartService } from 'src/app/services/cart.service';
 import { OrderService } from 'src/app/services/order.service';
+import { PaymentService } from 'src/app/services/payment.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -31,7 +33,8 @@ export class SumaryOrderComponent implements OnInit{
     private userService: UserService,
     private toastr: ToastrService,
     private orderService: OrderService,
-    private router: Router
+    private router: Router,
+    private paymentService: PaymentService
   ) {
     
   }
@@ -43,41 +46,60 @@ export class SumaryOrderComponent implements OnInit{
   }
 
   generateOrder() {
+    if (this.items.length === 0) {
+      this.toastr.warning('Your cart is empty.', 'Warning');
+      return;
+    }
+  
     this.isGeneratingOrder = true;
-    this.items.forEach(
-      item => {
-        let orderProduct: OrderProduct = {
-          id: null,
-          productId: item.productId,
-          quantity: item.quantity,
-          price: item.price
-        }
-        // add each product to the list
-        this.orderProducts.push(orderProduct);
-      }
-    );
-
-    let order: Order = {
+  
+    const order: Order = {
       id: null,
-      dateCreated: new Date (),
+      dateCreated: new Date(),
       orderProducts: this.orderProducts,
       userId: this.userId,
       orderState: OrderState.CANCELLED
-    }
-
-    this.orderService.createOrder(order).subscribe({
-      next: (data) => {
-        this.isGeneratingOrder = false;
-        this.cartService.clearCart();
-        this.router.navigate(['/']);
-        this.toastr.success(`New order created (ID ${data.id})`, 'Order created');
-      },
-      error: () => {
-        this.isGeneratingOrder = false;
-        this.toastr.error('The order could not be created :: createOrder', 'Error'); 
-      }
-    })
+    };
+  
+    this.orderService.createOrder(order)
+      .pipe(
+        switchMap(orderData => this.processPayment(orderData)), // ⬅️ Extraemos la lógica del pago
+        catchError(() => {
+          this.toastr.error('There was an error processing your order.', 'Order Error');
+          return of(null);
+        }),
+        finalize(() => this.isGeneratingOrder = false)
+    )
+    .subscribe();
   }
+
+  private processPayment(orderData: Order): Observable<boolean> {
+    const dataPayment = {
+      method: 'PAYPAL',
+      amount: this.totalCart.toString(),
+      currency: 'USD',
+      description: `Payment for Order ID ${orderData.id}`
+    };
+  
+    return this.paymentService.getURLPaypalPayment(dataPayment).pipe(
+      switchMap(paymentResponse => {
+        if (paymentResponse?.url) {
+          this.cartService.clearCart();
+          window.location.href = paymentResponse.url.toString();
+          this.toastr.success('The payment was successfully proccesed.', 'Payment Successful');
+          return of(true);
+        }
+        return throwError(() => new Error('Invalid payment response'));
+      }),
+      catchError(() => {
+        this.toastr.error('The payment could not be processed.', 'Payment Error');
+        return of(false);
+      })
+    );
+  }
+  
+  
+  
 
   deleteItemCart(productId: number) {
     this.cartService.deleteItemCart(productId);
