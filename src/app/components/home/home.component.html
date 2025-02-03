@@ -8,13 +8,13 @@
   </header>
 </div>
 
-<div class="main-content mt-5">
+<div class="main-content mt-5 mb-5">
   <div class="section-content section-content-p30">
     <div class="container-fluid">
       <div class="row justify-content-center">
         <div *ngFor="let p of products; trackBy: trackById" class="col-md-3">
 
-          <div class="product-box">
+          <div class="product-box mb-4 shadow">
             <img [src]="p.urlImage" class="pImage">
             <h2 class="card-text">{{ p.name }}</h2>
             <div class="price">{{ p.price | currency: 'EUR' }}</div>

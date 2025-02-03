@@ -1,36 +1,53 @@
 .product-box {
-    width: 100%;
-    min-height: 350px; /* Ajusta según necesidad */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra los elementos horizontalmente */
-    text-align: center; /* Asegura que el texto esté centrado */
-    padding: 15px;
-    border: 1px solid #ddd; /* Solo para visualización */
-    border-radius: 10px;
+  width: 100%;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden; /* Evita que el contenido desborde */
+}
+
+.pImage {
+  width: 100%;
+  max-width: 200px; /* Limita el ancho en pantallas medianas */
+  max-height: 200px;
+  aspect-ratio: 1 / 1; /* Mantiene proporción cuadrada */
+  object-fit: contain; /* Evita recortes no deseados */
+}
+
+.card-text {
+  min-height: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 1.1rem;
+  color: #28a745;
+  margin-top: 10px;
+  min-height: 30px;
+}
+
+.product-show {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .col-md-3 {
+      flex: 0 0 50%; /* 2 columnas en pantallas medianas */
+      max-width: 50%;
   }
-  
-  .pImage {
-    width: 100%; 
-    max-height: 300px; /* Mantiene uniformidad en las imágenes */
-    object-fit: cover; /* Ajusta la imagen sin deformarla */
+}
+
+@media (max-width: 576px) {
+  .col-md-3 {
+      flex: 0 0 100%; /* 1 columna en móviles */
+      max-width: 100%;
   }
-  
-  .card-text {
-    min-height: 50px; /* Asegura que los títulos ocupen el mismo espacio */
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  .price {
-    font-size: 1.1rem;
-    color: #28a745;
-    margin-top: 10px;
-    min-height: 30px; /* Mantiene alineación */
-  }
-  
-  .product-show {
-    margin-top: auto; /* Empuja el botón hacia abajo */
-    width: 100%;
-  }
-  
+}

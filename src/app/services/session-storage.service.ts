@@ -7,13 +7,13 @@ export class SessionStorageService {
 
   constructor() { }
 
-  setItem(key: string, value: string | number) {
-    sessionStorage.setItem(key, JSON.stringify(value))
+  setItem<T>(key: string, value: T) {
+    sessionStorage.setItem(key, JSON.stringify(value));
   }
 
-  getItem(key: string): string | number | null {
+  getItem<T>(key: string): T | null {
     const item = sessionStorage.getItem(key);
-    return item ? JSON.parse(item) : null;
+    return item ? JSON.parse(item) as T : null;
   }
 
   removeItem(key: string) {

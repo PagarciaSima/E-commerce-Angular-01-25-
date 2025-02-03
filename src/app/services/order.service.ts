@@ -28,7 +28,7 @@ export class OrderService {
   }
 
   updateOrder(formData: FormData): Observable<FormData> {
-    return this.httpClient.put<FormData>(`${this.apiURL}/update/state/order`, formData);
+    return this.httpClient.patch<FormData>(`${this.apiURL}/update/state/order`, formData);
   }
     
   getOrderByUserId(userId: number): Observable<Order[]> {

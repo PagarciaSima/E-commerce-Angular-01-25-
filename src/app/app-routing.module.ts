@@ -9,6 +9,7 @@ import { CategoryAddComponent } from './components/category-add/category-add.com
 import { DetailProductComponent } from './components/cart/detail-product/detail-product.component';
 import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-order.component';
 import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
+import { PaymentErrorComponent } from './components/payment-error/payment-error.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,8 @@ const routes: Routes = [
   { path: 'cart/detailproduct/:id', component: DetailProductComponent },
   { path: 'cart/summary', component: SumaryOrderComponent },
   { path: 'payment/success', component: PaymentSuccessComponent },
+  { path: 'payment/error', component: PaymentErrorComponent },
+
 ];
 
 @NgModule({
