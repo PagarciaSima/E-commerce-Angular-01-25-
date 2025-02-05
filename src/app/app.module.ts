@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-order.component';
 import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 import { PaymentErrorComponent } from './components/payment-error/payment-error.component';
+import { RegistrationComponent } from './components/authentication/registration/registration.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { PaymentErrorComponent } from './components/payment-error/payment-error.
     HeaderUserComponent,
     SumaryOrderComponent,
     PaymentSuccessComponent,
-    PaymentErrorComponent
+    PaymentErrorComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
