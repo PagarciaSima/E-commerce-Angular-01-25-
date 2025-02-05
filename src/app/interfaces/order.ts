@@ -9,7 +9,7 @@ export interface Order {
 }
 
 export enum OrderState {
-    CONFIRFMED = "CONFIRFMED",
+    CONFIRFMED = "CONFIRMED",
     CANCELLED = "CANCELLED"
   }
   
