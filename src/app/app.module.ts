@@ -20,6 +20,7 @@ import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-or
 import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 import { PaymentErrorComponent } from './components/payment-error/payment-error.component';
 import { RegistrationComponent } from './components/authentication/registration/registration.component';
+import { LoginComponent } from './components/authentication/login/login.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { RegistrationComponent } from './components/authentication/registration/
     SumaryOrderComponent,
     PaymentSuccessComponent,
     PaymentErrorComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

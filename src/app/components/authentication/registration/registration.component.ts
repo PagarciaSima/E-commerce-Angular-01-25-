@@ -50,6 +50,7 @@ export class RegistrationComponent implements OnInit{
     this.authenticationService.register(user).subscribe({
       next: () => {
         this.toastr.success('User registered successfully', "User registered");
+        this.router.navigate(['/']);
       }, error: () => {
         this.toastr.error('The user could not be registered', "Error");
       }

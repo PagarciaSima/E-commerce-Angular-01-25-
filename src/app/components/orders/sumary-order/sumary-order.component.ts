@@ -35,7 +35,7 @@ export class SumaryOrderComponent implements OnInit{
     private toastr: ToastrService,
     private orderService: OrderService,
     private paymentService: PaymentService,
-    private sessionStorage: SessionStorageService
+    private storageService: SessionStorageService
   ) {
     
   }
@@ -73,7 +73,7 @@ export class SumaryOrderComponent implements OnInit{
       .pipe(
         switchMap(orderData => {
         // Save order in sessionStorage
-        sessionStorage.setItem('order', JSON.stringify(orderData));
+        this.storageService.setItem('order', JSON.stringify(orderData));
         console.log("Order saved ID ", orderData.id);
 
         // Payment

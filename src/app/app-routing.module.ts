@@ -11,6 +11,7 @@ import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-or
 import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 import { PaymentErrorComponent } from './components/payment-error/payment-error.component';
 import { RegistrationComponent } from './components/authentication/registration/registration.component';
+import { LoginComponent } from './components/authentication/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'payment/error', component: PaymentErrorComponent },
 
   { path: 'user/register', component: RegistrationComponent },
+  { path: 'user/login', component: LoginComponent },
 
 
 ];
