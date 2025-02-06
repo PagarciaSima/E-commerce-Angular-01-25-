@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserType } from 'src/app/common/user-type';
 import { User } from 'src/app/interfaces/user';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -16,19 +17,19 @@ export class RegistrationComponent implements OnInit{
   lastName: string = '';
   email: string = '';
   address: string = '';
-  cellphone: string = '';
+  cellPhone: string = '';
   password: string = '';
   userType: string = '';
  
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
 
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   registerUSer() {
@@ -41,10 +42,18 @@ export class RegistrationComponent implements OnInit{
       lastName: this.lastName,
       email: this.email,
       address: this.address,
-      cellPhone: this.cellphone,
+      cellPhone: this.cellPhone,
       password: this.password,
       userType: UserType[this.userType as keyof typeof UserType]
     }
+
+    this.authenticationService.register(user).subscribe({
+      next: () => {
+        this.toastr.success('User registered successfully', "User registered");
+      }, error: () => {
+        this.toastr.error('The user could not be registered', "Error");
+      }
+    });
   }
 
 }

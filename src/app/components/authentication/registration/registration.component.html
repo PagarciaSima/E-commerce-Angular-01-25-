@@ -2,53 +2,59 @@
  <!-- Page Content -->
  <div class="container mt-5">
 
-    <div class="card mb-3">
+    <div class="card mb-3 bg-success text-white">
       <div class="row no-gutters">
         <div class="col-md-4"></div>
         <div class="col-md-8">
           <div class="card-body">
-            <h2>Registro</h2>
-
+            <h2>Register form</h2>
           </div>
         </div>
       </div>
     </div>
-	<form action="#" method="post">
+	<form (ngSubmit)="registerUSer()">
       <div class="form-group">
-        <label for="name">Nombre:</label> <input type="text"
-          class="form-control" id="name" name="name"
-          placeholder="Ingrese su nombre" autocomplete="off">
+        <label for="name" class="fw-bold">Nombre:</label> 
+        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter your first name"
+            autocomplete="off" [(ngModel)]="firstName"
+        >
       </div>
 	  
 	   <div class="form-group">
-        <label for="surname">Apellido:</label> <input type="text"
-          class="form-control" id="surname" name="surname"
-          placeholder="Ingrese su Apellido" autocomplete="off">
+        <label for="surname" class="fw-bold">Apellido:</label> 
+        <input type="text" class="form-control" id="surname" name="surname" placeholder="Enter your last name" 
+            autocomplete="off" [(ngModel)]="lastName"
+        >
       </div>
 
       <div class="form-group">
-        <label for="email">Email:</label> <input type="email"
-          class="form-control" id="email" name="email"
-          placeholder="Ingrese su email" autocomplete="off">
+        <label for="email" class="fw-bold">Email:</label> 
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" 
+            autocomplete="off" [(ngModel)]="email"
+        >
       </div>
 
       <div class="form-group">
-        <label for="address">Dirección:</label> <input type="text"
-          class="form-control" id="address" name="address"
-          placeholder="Ingrese su dirección" autocomplete="off">
+        <label for="address" class="fw-bold">Address:</label> 
+        <input type="text" class="form-control" id="address" name="address" placeholder="Ingrese su dirección" 
+            autocomplete="off" [(ngModel)]="address"
+        >
       </div>
 	   <div class="form-group">
-        <label for="cellphone">Teléfono:</label> <input type="text"
-          class="form-control" id="cellphone" name="cellphone"
-          placeholder="Ingrese su teléfono" autocomplete="off">
+        <label for="cellPhone" class="fw-bold">Phone number:</label> 
+        <input type="text" class="form-control" id="cellPhone" name="cellPhone" placeholder="Enter your phone number" 
+            autocomplete="off" [(ngModel)]="cellPhone"
+        >
       </div>
 
       <div class="form-group">
-        <label for="password">Contraseña</label> <input type="password"
-          class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" autocomplete="off">
+        <label for="password" class="fw-bold">Password</label> 
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" 
+            autocomplete="off" [(ngModel)]="password"
+        >
       </div>
       <div class="col-sm-2 mt-3">
-        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="submit" class="btn btn-success fw-bold"><i class="fa-solid fa-user-plus me-2"></i>Save</button>
       </div>
     </form>
   </div>
