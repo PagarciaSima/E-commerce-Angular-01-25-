@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, finalize, Observable, of, switchMap, throwError } from 'rxjs';
 import { ItemCart } from 'src/app/interfaces/item-cart';
@@ -45,6 +44,14 @@ export class SumaryOrderComponent implements OnInit{
     this.totalCart = this.cartService.totalCart();
     this.userId = Number(this.storageService.getItem('userID'));
     this.getUserById(this.userId);
+    this.expirationToken();
+  }
+
+  
+  expirationToken() {
+    setTimeout(() => {
+      this.storageService.removeItem('token'); 
+    }, 60 * 60 * 1000);
   }
 
   generateOrder() {

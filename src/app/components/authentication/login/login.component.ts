@@ -35,9 +35,16 @@ export class LoginComponent implements OnInit{
       next: (data) => {
         this.sessionService.clear();
         this.sessionService.setItem('token', data.token);
-        this.sessionService.setItem('userID', data.id)
+        this.sessionService.setItem('userID', data.id);
+        this.sessionService.setItem('userType', data.userType)
+
         this.toastR.success("Log in successful", 'Log in');
-        this.router.navigate(["/"]);
+        if (data.userType == 'ADMIN') {
+          this.router.navigate(["/admin/product"]);
+        } else {
+          this.router.navigate(["/"]);
+        }
+        
       }, error: () => {
         this.toastR.error("Wrong credentials", 'Error');
       }

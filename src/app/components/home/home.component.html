@@ -1,4 +1,12 @@
-<app-header-user></app-header-user>
+<ng-container *ngIf="userRole === 'ADMIN'">
+  <!-- Mostrar contenido o cabecera de admin -->
+  <app-header-admin></app-header-admin>
+</ng-container>
+
+<ng-container *ngIf="userRole != 'ADMIN'">
+  <!-- Mostrar cabecera de usuario -->
+  <app-header-user></app-header-user>
+</ng-container>
 
 <!-- Page Content -->
 <div class="container">

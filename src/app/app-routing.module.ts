@@ -13,25 +13,30 @@ import { PaymentErrorComponent } from './components/payment-error/payment-error.
 import { RegistrationComponent } from './components/authentication/registration/registration.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { authGuard } from './guards/auth.guard';
+import { roleadminGuard } from './guards/roleadmin.guard';
+import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'admin/product', component: ProductListComponent },
-  { path: 'admin/product/addproduct', component: ProductAddComponent },
-  { path: 'admin/product/update/:id', component: ProductAddComponent },
+  { path: '', component: HomeComponent, canActivate: [authGuard] },
+  { path: 'admin/product', component: ProductListComponent, canActivate: [authGuard, roleadminGuard] },
+  { path: 'admin/product/addproduct', component: ProductAddComponent, canActivate: [authGuard] },
+  { path: 'admin/product/update/:id', component: ProductAddComponent,  canActivate: [authGuard] },
 
-  { path: 'admin/category', component: CateogryListComponent },
-  { path: 'admin/category/addcategory', component: CategoryAddComponent },
-  { path: 'admin/category/update/:id', component: CategoryAddComponent },
+  { path: 'admin/category', component: CateogryListComponent, canActivate: [authGuard]},
+  { path: 'admin/category/addcategory', component: CategoryAddComponent, canActivate: [authGuard] },
+  { path: 'admin/category/update/:id', component: CategoryAddComponent, canActivate: [authGuard] },
 
-  { path: 'cart/detailproduct/:id', component: DetailProductComponent },
-  { path: 'cart/summary', component: SumaryOrderComponent },
-  { path: 'payment/success', component: PaymentSuccessComponent },
-  { path: 'payment/error', component: PaymentErrorComponent },
+  { path: 'cart/detailproduct/:id', component: DetailProductComponent, canActivate: [authGuard] },
+  { path: 'cart/summary', component: SumaryOrderComponent, canActivate: [authGuard] },
+  { path: 'payment/success', component: PaymentSuccessComponent, canActivate: [authGuard] },
+  { path: 'payment/error', component: PaymentErrorComponent, canActivate: [authGuard] },
 
   { path: 'user/register', component: RegistrationComponent },
   { path: 'user/login', component: LoginComponent },
-  { path: 'user/logout', component: LogoutComponent },
+  { path: 'user/logout', component: LogoutComponent},
+
+  { path: 'auth/denied', component: UnauthorizedComponent},
 
 
 ];

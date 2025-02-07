@@ -1,4 +1,5 @@
 export interface Jwtclient {
     id: number,
-    token: string
+    token: string,
+    userType: string
 }
