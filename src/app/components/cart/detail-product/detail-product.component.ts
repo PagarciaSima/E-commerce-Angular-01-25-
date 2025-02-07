@@ -43,6 +43,7 @@ export class DetailProductComponent implements OnInit{
               this.name = data.name;
               this.description = data.description;
               this.price = data.price;
+              this.urlImage = data.urlImage
             }, error: () => {
               this.toastr.error('Product not found with ID ', id);
             }

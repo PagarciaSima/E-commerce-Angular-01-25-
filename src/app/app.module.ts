@@ -21,6 +21,7 @@ import { PaymentSuccessComponent } from './components/payment-success/payment-su
 import { PaymentErrorComponent } from './components/payment-error/payment-error.component';
 import { RegistrationComponent } from './components/authentication/registration/registration.component';
 import { LoginComponent } from './components/authentication/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { LoginComponent } from './components/authentication/login/login.componen
     PaymentSuccessComponent,
     PaymentErrorComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

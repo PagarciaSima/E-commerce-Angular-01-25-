@@ -12,6 +12,7 @@ import { PaymentSuccessComponent } from './components/payment-success/payment-su
 import { PaymentErrorComponent } from './components/payment-error/payment-error.component';
 import { RegistrationComponent } from './components/authentication/registration/registration.component';
 import { LoginComponent } from './components/authentication/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
 
   { path: 'user/register', component: RegistrationComponent },
   { path: 'user/login', component: LoginComponent },
+  { path: 'user/logout', component: LogoutComponent },
 
 
 ];
