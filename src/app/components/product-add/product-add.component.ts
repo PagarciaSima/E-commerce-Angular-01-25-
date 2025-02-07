@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Category } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
+import { SessionStorageService } from 'src/app/services/session-storage.service';
 
 @Component({
   selector: 'app-product-add',
@@ -18,7 +19,7 @@ export class ProductAddComponent implements OnInit{
   description: string = '';
   price: number = 0;
   urlImage: string = '';
-  userId: string = '1';
+  userId: string = '0';
   categoryId: string = '0';
   selectFile!: File;
 
@@ -29,12 +30,14 @@ export class ProductAddComponent implements OnInit{
     private categoryService: CategoryService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private sessionStorageService: SessionStorageService
   ) {
     
   }
 
   ngOnInit(): void {
+    this.userId = this.sessionStorageService.getItem('userID') || '';
     this.getProductByID();
     this.getCategories();
   }

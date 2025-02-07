@@ -43,6 +43,7 @@ export class SumaryOrderComponent implements OnInit{
   ngOnInit(): void {
     this.items = this.cartService.getListFromMap();
     this.totalCart = this.cartService.totalCart();
+    this.userId = Number(this.storageService.getItem('userID'));
     this.getUserById(this.userId);
   }
 

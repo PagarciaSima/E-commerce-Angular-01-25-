@@ -16,7 +16,7 @@ export class HeaderService {
     console.log('Header service ', token)
 
     return new HttpHeaders({
-      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
       'Authorization': token
     });
 
