@@ -16,6 +16,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { authGuard } from './guards/auth.guard';
 import { roleadminGuard } from './guards/roleadmin.guard';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [authGuard] },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'user/logout', component: LogoutComponent},
 
   { path: 'auth/denied', component: UnauthorizedComponent},
+  { path: '**', component: NotFoundComponent},
 
 
 ];

@@ -23,6 +23,7 @@ import { RegistrationComponent } from './components/authentication/registration/
 import { LoginComponent } from './components/authentication/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.compone
     RegistrationComponent,
     LoginComponent,
     LogoutComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

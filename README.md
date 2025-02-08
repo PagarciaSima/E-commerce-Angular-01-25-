@@ -1,27 +1,92 @@
-# EcommerceFrontend
+# E-commerce Full Stack Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+This is a full-stack E-commerce application built with Angular (frontend) and Java Spring Boot (backend). The application supports two user roles: **Admin** and **User**.
 
-## Development server
+- **Admin**: Can perform CRUD operations on categories, products, and users.
+- **User**: Can browse products, add them to the cart, and create orders (integrated with PayPal Sandbox for payments).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Frontend Repository
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The Back end of the application is built with Spring Boot and can be found at:
 
-## Build
+[Frontend Repository - Angular](https://github.com/PagarciaSima/E-commerce-Spring-Boot-01-25)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## Features
+- **User Authentication**: Secure login and JWT-based authentication.
+- **Role-Based Access Control**: Different functionalities for Admin and User.
+- **Product Management**: CRUD operations for products (Admin only).
+- **Category Management**: Manage product categories (Admin only).
+- **User Management**: Admin can manage user accounts.
+- **Shopping Cart**: Users can add/remove products to/from the cart.
+- **Order Processing**: Users can place orders and make payments via PayPal Sandbox.
+- **API Documentation**: Integrated with OpenAPI for API documentation.
+- **Unit Testing**: Mockito for backend unit tests.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## Technologies
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Backend (Spring Boot 3.4.0 / Java 17)
+- **Spring Boot 3.4.0**
+- **Spring Data JPA** (Database access)
+- **Spring Security & JWT** (Authentication & Authorization)
+- **PostgreSQL** (Database)
+- **Lombok** (Boilerplate code reduction)
+- **MapStruct** (Object Mapping)
+- **dotenv** (Environment variables management)
+- **Mockito** (Unit testing)
+- **OpenAPI** (API documentation)
 
-## Further help
+### Frontend (Angular 16)
+- **Angular 16** (Core framework)
+- **Bootstrap 5.3.3** (Styling & layout)
+- **ngx-toastr** (Notifications)
+- **SweetAlert2** (Custom alerts & modals)
+- **FontAwesome** (Icons)
+- **RxJS** (Reactive programming)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## Interfaces 
+
+### Login
+![login](img/login.png)
+
+### Register
+![register](img/register.png)
+
+### Admin / products
+![products](img/admin_products.png)
+
+### Admin / Create-Edit products
+![Form product](img/admin_new_products.png)
+
+### Admin / Categories
+
+![categories](img/categories.png)
+
+### User / Home
+![user home](img/user_home.png)
+
+### Product detail
+![product detail](img/product_detail.png)
+
+### PayPal Payment Sandbox
+![paypal1](img/paypal1.png)
+![paypal2](img/paypal2.png)
+
+---
+
+## Open Api Doc
+ 
+![openapi](img/openapi.png)
+
+## Extras
+
+- **Database (BDD)**: The database used is PostgreSQL. The database schema, along with the scripts for table creation and initial data, can be found in the "extras" directory.
+
+- **Postman Collection**: You can find the Postman collection to test all the API endpoints in the "extras" directory.

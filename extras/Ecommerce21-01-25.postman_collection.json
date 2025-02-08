@@ -1,0 +1,646 @@
+{
+	"info": {
+		"_postman_id": "fc49274c-e864-4868-9959-c84d8b81d546",
+		"name": "Ecommerce21/01/25",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27783092"
+	},
+	"item": [
+		{
+			"name": "PostUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJFLWNvbW1lcmNlIiwic3ViIjoicGdzMkBob3RtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzM4NzY5NzkxLCJleHAiOjE3Mzg3NzMzOTF9.K2Qd15u-e5k3lKTk0Z-nxjmrMGIq9Evh1LwH0QlMlo26oqFuHNj_fc3MxJj7AgZFMEiW8sUGAuUNFu2xT-S77A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs3@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SecurityPostUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/security/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"security",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs@hotmail.com\",\r\n    \"password\": \"patata123\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/security/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"security",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/users/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostCategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Televisores\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/admin/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateCategory",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Ordenadores\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/admin/categories/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"categories",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCategory",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/admin/categories/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"categories",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCategories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/admin/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCategory",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/admin/categories/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"categories",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Televisor\",\r\n    \"code\": \"00154\",\r\n    \"description\" : \"Televisor de 15 pulgadas\",\r\n    \"price\": \"500\",\r\n    \"userId\": 1,\r\n    \"categoryId\": 3\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/admin/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProduct",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/admin/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putProduct",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n    \"name\": \"Laptop\",  \r\n    \"code\": \"00467\",  \r\n    \"description\": \"Laptop de 15.6 pulgadas con procesador Intel i7\",  \r\n    \"price\": \"1200\",  \r\n    \"userId\": 1,  \r\n    \"categoryId\": 4\r\n}  \r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/admin/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProducts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/admin/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProduct",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/admin/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 1,\r\n    \"orderState\": \"CANCELLED\",\r\n    \"orderProducts\": [\r\n        {\r\n            \"productId\": 4,\r\n            \"quantity\": 2,\r\n            \"price\": 1500\r\n        },\r\n         {\r\n            \"productId\": 3,\r\n            \"quantity\": 10,\r\n            \"price\": 200\r\n        }\r\n    ]\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateOrderState",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 1,\r\n    \"orderState\": \"CANCELLED\",\r\n    \"orderProducts\": [\r\n        {\r\n            \"productId\": 4,\r\n            \"quantity\": 2,\r\n            \"price\": 1500\r\n        },\r\n         {\r\n            \"productId\": 3,\r\n            \"quantity\": 10,\r\n            \"price\": 200\r\n        }\r\n    ]\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/orders/update/state/order?id=2&state=CONFIRMED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"update",
+						"state",
+						"order"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						},
+						{
+							"key": "state",
+							"value": "CONFIRMED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrdersByID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrdersByUserID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pgs\",\r\n    \"firstName\": \"Pablo\",\r\n    \"lastName\": \"Simavilla\",\r\n    \"email\": \"pgs@hotmail.com\",\r\n    \"address\": \"Invented Street 3, Gijón\",\r\n    \"cellPhone\": \"654123200\",\r\n    \"userType\": \"ADMIN\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
