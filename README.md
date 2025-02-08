@@ -11,7 +11,7 @@ This is a full-stack E-commerce application built with Angular (frontend) and Ja
 
 The Back end of the application is built with Spring Boot and can be found at:
 
-[Frontend Repository - Angular](https://github.com/PagarciaSima/E-commerce-Spring-Boot-01-25)
+[Backend repository - Spring Boot](https://github.com/PagarciaSima/E-commerce-Spring-Boot-01-25)
 
 ---
 
@@ -63,11 +63,11 @@ The Back end of the application is built with Spring Boot and can be found at:
 ![products](img/admin_products.png)
 
 ### Admin / Create-Edit products
-![Form product](img/admin_new_products.png)
+![Form product](img/admin_new_product.png)
 
 ### Admin / Categories
 
-![categories](img/categories.png)
+![categories](img/admin_categories.png)
 
 ### User / Home
 ![user home](img/user_home.png)
